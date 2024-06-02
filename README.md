@@ -70,5 +70,10 @@
   export default App;
   ```
 
+## Screenshot Emulator 
+
+![Screenshot](Screenshot_1717355545.png)
+
+
 
 ## By Anju 
