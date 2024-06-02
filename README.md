@@ -1,79 +1,74 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native WebView Implementation
 
-# Getting Started
+## Source
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+- https://github.com/react-native-webview/react-native-webview
+- https://github.com/react-native-webview/react-native-webview/blob/master/docs/Getting-Started.md
 
-## Step 1: Start the Metro Server
+## Cara setup React Native WebView
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- create project react native
 
-To start Metro, run the following command from the _root_ of your React Native project:
+  `npx react-native init reactnative_WebView`
 
-```bash
-# using npm
-npm start
+- install/add **react-native-webview**
 
-# OR using Yarn
-yarn start
-```
+  - for yarn
+    `$ yarn add react-native-webview`
 
-## Step 2: Start your Application
+  - form npm
+    `$ npm install react-native-webview `
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- Jika Android
 
-### For Android
+  - Apabila menggunakan **react-native-webview version >=6.X.X:**
 
-```bash
-# using npm
-npm run android
+    Pastikan AndroidX diaktifkan, dengan cara mengedit android/gradle.properties dan menambahkan 2 baris:
 
-# OR using Yarn
-yarn android
-```
+    `android.useAndroidX=true `
 
-### For iOS
+    `android.enableJetifier=true`
 
-```bash
-# using npm
-npm run ios
+  - Nah, jika sudah menggunakan **react-native-webview version <6**
+    harusnya tidak memerlukan cara sebelumnya
 
-# OR using Yarn
-yarn ios
-```
+## Cara menggunakan komponen React Native WebView
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- import **Webview**
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+  `import { WebView } from 'react-native-webview';`
 
-## Step 3: Modifying your App
+- Dan ini hasil akhirnya
 
-Now that you have successfully run the app, let's modify it.
+  ```javascript
+  import React from 'react';
+  import {View, StyleSheet, StatusBar} from 'react-native';
+  import {WebView} from 'react-native-webview';
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+  const App = () => {
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor={'#FFFFFF'} />
+        <WebView
+          source={{uri: 'https://infinite.red'}}
+          style={styles.webview}
+        />
+      </View>
+    );
+  };
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    webview: {
+      marginTop: 20,
+      flex: 1,
+    },
+  });
 
-## Congratulations! :tada:
+  export default App;
+  ```
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## By Anju 
