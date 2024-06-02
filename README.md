@@ -13,10 +13,10 @@
 
 - install/add **react-native-webview**
 
-  - for yarn
+  - untuk yarn
     `$ yarn add react-native-webview`
 
-  - form npm
+  - untuk npm
     `$ npm install react-native-webview `
 
 - Jika Android
